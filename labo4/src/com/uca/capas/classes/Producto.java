@@ -4,7 +4,7 @@ package com.uca.capas.classes;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
-
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
@@ -29,8 +29,8 @@ public class Producto {
 	@Size(message="El maximo de caracteres son 30", max=30)
 	private String categoria;
 	
-	
-	@PositiveOrZero
+	@Digits(integer=10, fraction=5, message="Se espera un maximo de 10 digitos en la parte entera y 5 digitos en la parte decimal")
+	@PositiveOrZero	
 	private double precio;
 	
 	@Pattern(regexp="((([0-2](?=[0-9]))[0-9])|(([3](?=[0-1]))[0-1]))\\/((([0](?=[0-9]))[0-9])|(([1](?=[0-2]))[0-2]))\\/2[0-9]{3}", message="Ingrese una fecha válida: dd/mm/yyyy. Ejemplo 01/10/2019")
